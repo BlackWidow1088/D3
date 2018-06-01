@@ -13,7 +13,9 @@ export class SunburstComponent implements OnChanges {
   mouseHover: boolean = false;
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
+    if (this.data && this.data.data && this.data.componentType) {
       this.generateArcs(this.data.data, this.data.componentType);
+    }
   }
   generateArcs(data: Details[], title) {
     const selectedG = select(this.gElement.nativeElement);
